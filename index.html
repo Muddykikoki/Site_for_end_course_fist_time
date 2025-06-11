@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberTech - Tecnologia em Movimento</title>
+    <meta name="description" content="Soluções de informática com excelência, inovação e confiança para empresas que buscam transformação digital.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,6 +31,7 @@
             color: #f0f0f0;
             overflow-x: hidden;
             position: relative;
+            scroll-behavior: smooth;
         }
 
         body::before {
@@ -237,8 +239,7 @@
             font-size: 1.5rem;
             margin-bottom: 30px;
             color: var(--prata);
-            animation: fadeInUp 1s ease 0.2s forwards;
-            opacity: 0;
+            min-height: 1.5em;
         }
 
         .hero-buttons {
@@ -267,6 +268,10 @@
             box-shadow: 0 10px 20px rgba(27, 67, 50, 0.3);
         }
 
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.25rem rgba(82, 183, 136, 0.5);
+        }
+
         .btn-primary::after {
             content: '';
             position: absolute;
@@ -292,6 +297,10 @@
             background: rgba(82, 183, 136, 0.1);
         }
 
+        .btn-outline:focus {
+            box-shadow: 0 0 0 0.25rem rgba(82, 183, 136, 0.5);
+        }
+
         .hero-image {
             position: absolute;
             right: 0;
@@ -299,21 +308,12 @@
             transform: translateY(-50%);
             width: 50%;
             height: 80%;
-            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat;
+            background: linear-gradient(90deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat;
             border-radius: 20px;
             box-shadow: var(--sombra);
             animation: float 6s ease-in-out infinite;
             overflow: hidden;
-        }
-
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.8) 100%);
         }
 
         /* Seções Gerais */
@@ -367,6 +367,7 @@
             overflow: hidden;
             box-shadow: var(--sombra);
             position: relative;
+            background-color: var(--verde-escuro);
         }
 
         .about-image img {
@@ -378,10 +379,6 @@
 
         .about-image:hover img {
             transform: scale(1.05);
-        }
-
-        .about-text {
-            flex: 1;
         }
 
         .mission-vision {
@@ -451,6 +448,7 @@
         .service-image {
             height: 200px;
             overflow: hidden;
+            background-color: var(--verde-escuro);
         }
 
         .service-image img {
@@ -509,6 +507,11 @@
             border-color: var(--verde-medio);
         }
 
+        .filter-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.25rem rgba(82, 183, 136, 0.5);
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -547,6 +550,7 @@
             height: 220px;
             overflow: hidden;
             position: relative;
+            background-color: var(--verde-escuro);
         }
 
         .product-image img {
@@ -703,6 +707,7 @@
             border-radius: 50%;
             color: var(--verde-medio);
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-link:hover {
@@ -749,6 +754,17 @@
         .footer-links a:hover {
             color: var(--verde-medio);
             transform: translateX(5px);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .input-group .form-control {
+            flex: 1;
+            margin-bottom: 0;
         }
 
         .copyright {
@@ -803,6 +819,16 @@
             100% { transform: translateY(-50%) translateX(0); }
         }
 
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--verde-medio); }
+        }
+
         /* Responsividade */
         @media (max-width: 992px) {
             .hero-title {
@@ -820,6 +846,7 @@
                 transform: none;
                 top: 0;
                 margin-top: 40px;
+                animation: none;
             }
         }
 
@@ -843,6 +870,20 @@
             
             .mission-vision {
                 flex-direction: column;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .products-filter {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
             }
         }
 
@@ -875,6 +916,17 @@
                 opacity: 0;
             }
         }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--verde-medio);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typewriter 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
     </style>
 </head>
 <body>
@@ -899,7 +951,7 @@
                         <i class="fas fa-cog logo-icon"></i>
                         <span class="logo-text">Cyber<span>Tech</span></span>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
@@ -935,8 +987,8 @@
                         <h1 class="hero-title">Tecnologia em <span>Movimento</span></h1>
                         <p class="hero-subtitle">Soluções de informática com excelência, inovação e confiança para empresas que buscam transformação digital.</p>
                         <div class="hero-buttons">
-                            <button class="btn btn-primary">Nossos Serviços</button>
-                            <button class="btn btn-outline">Contate-nos</button>
+                            <a href="#services" class="btn btn-primary">Nossos Serviços</a>
+                            <a href="#contact" class="btn btn-outline">Contate-nos</a>
                         </div>
                     </div>
                 </div>
@@ -995,7 +1047,7 @@
                     <div class="service-content">
                         <h3 class="service-title">Instalação de Hardware</h3>
                         <p class="service-description">Instalação profissional de servidores, workstations e equipamentos de rede com configuração otimizada para o seu negócio.</p>
-                        <button class="btn btn-outline">Saiba Mais</button>
+                        <a href="#contact" class="btn btn-outline">Solicitar Orçamento</a>
                     </div>
                 </div>
                 
@@ -1006,7 +1058,7 @@
                     <div class="service-content">
                         <h3 class="service-title">Manutenção Preventiva</h3>
                         <p class="service-description">Programas de manutenção regular para evitar falhas e prolongar a vida útil dos seus equipamentos.</p>
-                        <button class="btn btn-outline">Saiba Mais</button>
+                        <a href="#contact" class="btn btn-outline">Solicitar Orçamento</a>
                     </div>
                 </div>
                 
@@ -1017,7 +1069,7 @@
                     <div class="service-content">
                         <h3 class="service-title">Suporte Técnico</h3>
                         <p class="service-description">Suporte especializado 24/7 para resolver problemas técnicos e minimizar o tempo de inatividade.</p>
-                        <button class="btn btn-outline">Saiba Mais</button>
+                        <a href="#contact" class="btn btn-outline">Solicitar Orçamento</a>
                     </div>
                 </div>
             </div>
@@ -1031,15 +1083,15 @@
             <p class="section-subtitle">Equipamentos de alta performance para atender às demandas do seu negócio.</p>
             
             <div class="products-filter">
-                <button class="filter-btn active">Todos</button>
-                <button class="filter-btn">Hardware</button>
-                <button class="filter-btn">Periféricos</button>
-                <button class="filter-btn">Acessórios</button>
-                <button class="filter-btn">Redes</button>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="workstations">Workstations</button>
+                <button class="filter-btn" data-filter="servidores">Servidores</button>
+                <button class="filter-btn" data-filter="monitores">Monitores</button>
+                <button class="filter-btn" data-filter="redes">Redes</button>
             </div>
             
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-category="workstations">
                     <div class="product-badge">Novo</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1812&q=80" alt="Workstation Pro">
@@ -1053,7 +1105,7 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" data-category="servidores">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" alt="Servidor Enterprise">
                     </div>
@@ -1066,7 +1118,7 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" data-category="monitores">
                     <div class="product-badge">Promoção</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Monitor 4K">
@@ -1080,7 +1132,7 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" data-category="redes">
                     <div class="product-image">
                         <img src="https://www.shutterstock.com/image-photo/network-switch-48-24-gigabit-260nw-544795276.jpg" alt="Switch 48 Portas">
                     </div>
@@ -1146,7 +1198,7 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form>
+                    <form id="formContato">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Nome Completo" required>
                         </div>
@@ -1187,10 +1239,10 @@
                     </div>
                     <p class="footer-text">Tecnologia em movimento, ao alcance das suas mãos. Soluções completas em informática para empresas que buscam excelência e inovação.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
@@ -1220,8 +1272,8 @@
                     <h3 class="footer-title">Newsletter</h3>
                     <p class="footer-text">Inscreva-se para receber nossas novidades e promoções.</p>
                     <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Seu email">
-                        <button class="btn btn-primary">Inscrever</button>
+                        <input type="email" class="form-control" placeholder="Seu email" id="newsletter-email">
+                        <button class="btn btn-primary" id="btn-newsletter">Inscrever</button>
                     </div>
                 </div>
             </div>
@@ -1237,8 +1289,9 @@
         // Tela de carregamento
         window.addEventListener('load', function() {
             setTimeout(function() {
-                document.getElementById('loader').style.opacity = '0';
-                document.getElementById('loader').style.visibility = 'hidden';
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
             }, 2000);
         });
 
@@ -1257,10 +1310,14 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
@@ -1270,20 +1327,31 @@
         // Filtro de produtos
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', function() {
+                // Atualizar botão ativo
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 this.classList.add('active');
                 
-                // Aqui viria a lógica para filtrar os produtos
-                // Implementação simplificada para demonstração
+                const filter = this.getAttribute('data-filter');
+                const products = document.querySelectorAll('.product-card');
+                
+                products.forEach(product => {
+                    const category = product.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
             });
         });
 
         // Efeito de partículas
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = 30; // Reduzido para melhor performance
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -1296,7 +1364,7 @@
                 particle.style.top = `${posY}%`;
                 
                 // Tamanho aleatório
-                const size = Math.random() * 5 + 1;
+                const size = Math.random() * 3 + 1;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
@@ -1312,9 +1380,47 @@
             }
         }
 
+        // Efeito de digitação
+        function typeWriterEffect() {
+            const sloganElement = document.querySelector('.hero-subtitle');
+            const originalText = sloganElement.textContent;
+            sloganElement.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    sloganElement.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            };
+            
+            setTimeout(typeWriter, 1500);
+        }
+
+        // Validação de formulário
+        document.getElementById('formContato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulação de envio
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+
+        // Newsletter
+        document.getElementById('btn-newsletter').addEventListener('click', function() {
+            const email = document.getElementById('newsletter-email').value;
+            if (email && email.includes('@')) {
+                alert('Inscrição realizada! Obrigado.');
+                document.getElementById('newsletter-email').value = '';
+            } else {
+                alert('Por favor, insira um email válido.');
+            }
+        });
+
         // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
+            typeWriterEffect();
             
             // Animar elementos ao entrar na viewport
             const animateOnScroll = function() {
@@ -1331,7 +1437,7 @@
                 });
             };
             
-            // Definir estado inicial
+            // Definir estado inicial para as animações
             document.querySelectorAll('.card, .service-card, .product-card').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
@@ -1341,22 +1447,6 @@
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // Executar ao carregar
         });
-
-        // Efeito de digitação no slogan
-        const sloganElement = document.querySelector('.hero-subtitle');
-        const originalText = sloganElement.textContent;
-        sloganElement.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < originalText.length) {
-                sloganElement.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 30);
-            }
-        };
-        
-        setTimeout(typeWriter, 1500);
     </script>
 </body>
 </html>
